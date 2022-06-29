@@ -112,13 +112,20 @@ export default function App() {
 
           <Box w="300px" h="350px">
             <ScrollView>
-              {searchResults?.map((val) => {
+              {searchResults?.map((val, ind) => {
                 return (
                   <Link
+                    key={"key-" + ind}
                     isExternal
                     href={`https://twitter.com/${userName}/status/${val.id}`}
                   >
-                    <Box bg="coolGray.200" my="3" p="3" rounded="4">
+                    <Box
+                      key={"key-internal-" + ind}
+                      bg="coolGray.200"
+                      my="3"
+                      p="3"
+                      rounded="4"
+                    >
                       {val.text}
                     </Box>
                   </Link>
